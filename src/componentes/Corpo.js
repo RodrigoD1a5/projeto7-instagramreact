@@ -1,7 +1,11 @@
+import Stories from "./Stories";
+
 export default function Corpo(){
     return (
-    <h1>
-        Teste Corpo
-    </h1>
+    <div class="corpo">
+        <div class ="esquerda">
+            <Stories/>
+        </div>
+    </div>
     )
 }

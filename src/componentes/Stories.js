@@ -1,5 +1,5 @@
 export default function Stories() {
-    const listaSotories = [
+    const listaStories = [
         { imagem: "assets/img/9gag.svg", usuario: "9gag" },
         { imagem: "assets/img/meowed.svg", usuario: "meowed" },
         { imagem: "assets/img/barked.svg", usuario: "barked" },
@@ -11,7 +11,7 @@ export default function Stories() {
     ]
     return (
         <div class="stories">
-            {listaSotories.map((story) => <Story imagem={story.imagem} usuario={story.usuario}/>)}
+            {listaStories.map((story) => <Story imagem={story.imagem} usuario={story.usuario}/>)}
             <div class="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>

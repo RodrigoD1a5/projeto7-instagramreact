@@ -1,9 +1,4 @@
-import ReactDOM  from "react-dom";
+import ReactDOM from "react-dom"
+import App from "./componentes/App"
 
-function Lista(){
-    return(
-        <h1>Bora nessa, Digão</h1>
-    )
-}
-
-ReactDOM.render(Lista(), document.querySelector(".root"));
+ReactDOM.render(<App />, document.querySelector(".root"))

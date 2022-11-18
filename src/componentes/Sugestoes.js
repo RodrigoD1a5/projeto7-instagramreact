@@ -12,17 +12,23 @@ export default function Sugestoes() {
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
-            <div class="sugestao">
-                <div class="usuario">
-                    <img src="assets/img/smallcutecats.svg" />
-                    <div class="texto">
-                        <div class="nome">smallcutecats</div>
-                        <div class="razao">Segue você</div>
-                    </div>
-                </div>
+            {listaSugestoes.map((sugestao)=> <Sugestao imagem={sugestao.imagem} nome={sugestao.nome} razao={sugestao.razao}/>)}
+        </div>
+    )
+}
 
-                <div class="seguir">Seguir</div>
+function Sugestao(props){
+    return(
+        <div class="sugestao">
+        <div class="usuario">
+            <img src={props.imagem} />
+            <div class="texto">
+                <div class="nome">{props.nome}</div>
+                <div class="razao">{props.razao}</div>
             </div>
         </div>
+
+        <div class="seguir">Seguir</div>
+    </div>
     )
 }

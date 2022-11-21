@@ -1,4 +1,5 @@
 import Corpo from "./Corpo"
+import FundoMobile from "./FundoMobile"
 import NavBar from "./NavBar"
 
 export default function App(){
@@ -6,7 +7,7 @@ export default function App(){
         <div>
             <NavBar/>
             <Corpo/>
-            
+            <FundoMobile/>
         </div>
     )
 }

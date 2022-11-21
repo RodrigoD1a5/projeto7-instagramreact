@@ -2,46 +2,46 @@ import React from "react"
 
 export default function Post(props) {
     const iconSavPadrao = "bookmark-outline"
-    const iconSalvo= "bookmark"
-    const iconLikePadrao="heart-outline"
-    const iconLike="heart"
+    const iconSalvo = "bookmark"
+    const iconLikePadrao = "heart-outline"
+    const iconLike = "heart"
 
-    const[iconSalvar, setIconSave] = React.useState(iconSavPadrao)
-    const[iconCurtir, setIconCurtir]= React.useState(iconLikePadrao)
-    const[numeroDeLikes, setNumeroDeLikes] = React.useState(101523)  
+    const [iconSalvar, setIconSave] = React.useState(iconSavPadrao)
+    const [iconCurtir, setIconCurtir] = React.useState(iconLikePadrao)
+    const [numeroDeLikes, setNumeroDeLikes] = React.useState(101523)
 
-    function salvarPost(){
-        if(iconSalvar === iconSavPadrao){
+    function salvarPost() {
+        if (iconSalvar === iconSavPadrao) {
             setIconSave(iconSalvo)
         }
-        else{
+        else {
             setIconSave(iconSavPadrao)
         }
     }
 
-    function curtirPost(){
-        if(iconCurtir === iconLikePadrao ){
+    function curtirPost() {
+        if (iconCurtir === iconLikePadrao) {
             setIconCurtir(iconLike)
-            setNumeroDeLikes(numeroDeLikes +1)
+            setNumeroDeLikes(numeroDeLikes + 1)
         }
-        else{
+        else {
             setIconCurtir(iconLikePadrao)
-            setNumeroDeLikes(numeroDeLikes -1)
+            setNumeroDeLikes(numeroDeLikes - 1)
         }
     }
-    
-    function curtirPostImagem(){
+
+    function curtirPostImagem() {
         setIconCurtir(iconLike)
-        if(iconCurtir === iconLike ){
+        if (iconCurtir === iconLike) {
             setNumeroDeLikes(numeroDeLikes)
         }
-        else{
+        else {
             setNumeroDeLikes(numeroDeLikes + 1)
         }
     }
 
     return (
-        <div class="post">
+        <div class="post" data-test="post">
             <div class="topo">
                 <div class="usuario">
                     <img src={props.usuarioImg} />
@@ -53,25 +53,25 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudoImg} onDoubleClick={curtirPostImagem}/>
+                <img src={props.conteudoImg} onDoubleClick={curtirPostImagem} data-test="post-image"/>
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon class={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost}></ion-icon>
+                        <ion-icon class={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={`${iconSalvar}`} onClick={salvarPost}></ion-icon>
+                        <ion-icon name={`${iconSalvar}`} onClick={salvarPost} data-test="save-post"></ion-icon>
                     </div>
                 </div>
 
                 <div class="curtidas">
                     <img src="assets/img/respondeai.svg" />
                     <div class="texto">
-                        Curtido por <strong>respondeai</strong> e <strong>outras {`${numeroDeLikes.toLocaleString('pt') }`} pessoas</strong>
+                        Curtido por <strong>respondeai</strong> e <strong>outras <span data-test="likes-number">{`${numeroDeLikes.toLocaleString('pt')}`}</span> pessoas</strong>
                     </div>
                 </div>
             </div>

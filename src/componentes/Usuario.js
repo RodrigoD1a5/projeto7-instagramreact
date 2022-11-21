@@ -8,6 +8,7 @@ export default function Usuario() {
     function inserirImagem(){
         setImagem(prompt("Digite a url da imagem"))
     }
+
     function inserirNome(){
         const resposta = prompt("Qual o seu nome?")
         if (!resposta){
@@ -18,14 +19,15 @@ export default function Usuario() {
             setNome(resposta)
         }
     }
+
     return (
-        <div class="usuario">
-            <img onClick={inserirImagem} src={!imagem ? imagemPadrao : imagem} />
+        <div class="usuario" data-test="user">
+            <img onClick={inserirImagem} src={!imagem ? imagemPadrao : imagem} data-test="profile-image"/>
             <div class="texto">
                 <strong>catanacomics</strong>
                 <span>
-                    {`${nome}`}
-                    <ion-icon name="pencil" onClick={inserirNome}></ion-icon>
+                    <span data-test="name">{`${nome}`}</span>
+                    <ion-icon name="pencil" onClick={inserirNome} data-test="edit-name"></ion-icon>
                 </span>
             </div>
         </div>

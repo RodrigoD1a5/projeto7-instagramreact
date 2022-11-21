@@ -60,13 +60,13 @@ export default function Post(props) {
 
             <div className="conteudo">
                 <img src={props.conteudoImg} onDoubleClick={curtirPostImagem} data-test="post-image"/>
-                <ion-icon name="heart" className={!dispararAnimacao ? "escondido" : "animacao"}></ion-icon>
+                <ion-icon name="heart" class={!dispararAnimacao ? "escondido" : "animacao"}></ion-icon>
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon className={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost} data-test="like-post"></ion-icon>
+                        <ion-icon class={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>

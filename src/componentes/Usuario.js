@@ -1,9 +1,14 @@
 import React from "react"
 
 export default function Usuario() {
+    const imagemPadrao= "assets/img/catanacomics.svg"
     const [nome , setNome]= React.useState("Catana")
+    const [imagem, setImagem]= React.useState(imagemPadrao)
 
-    function nomeUsuario(){
+    function inserirImagem(){
+        setImagem(prompt("Digite a url da imagem"))
+    }
+    function inserirNome(){
         const resposta = prompt("Qual o seu nome?")
         if (!resposta){
             alert("Digite seu nome corretamente")
@@ -15,12 +20,12 @@ export default function Usuario() {
     }
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" />
+            <img onClick={inserirImagem} src={!imagem ? imagemPadrao : imagem} />
             <div class="texto">
                 <strong>catanacomics</strong>
                 <span>
                     {`${nome}`}
-                    <ion-icon name="pencil" onClick={nomeUsuario}></ion-icon>
+                    <ion-icon name="pencil" onClick={inserirNome}></ion-icon>
                 </span>
             </div>
         </div>

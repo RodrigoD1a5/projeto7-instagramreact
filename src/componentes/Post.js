@@ -53,7 +53,7 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudoImg} onClick={curtirPostImagem}/>
+                <img src={props.conteudoImg} onDoubleClick={curtirPostImagem}/>
             </div>
 
             <div class="fundo">

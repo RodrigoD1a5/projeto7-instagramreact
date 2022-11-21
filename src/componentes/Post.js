@@ -1,16 +1,42 @@
 import React from "react"
 
 export default function Post(props) {
-    const iconPadrao = "bookmark-outline"
+    const iconSavPadrao = "bookmark-outline"
     const iconSalvo= "bookmark"
-    const[iconSalvar, setIconSave] = React.useState(iconPadrao)
+    const iconLikePadrao="heart-outline"
+    const iconLike="heart"
+
+    const[iconSalvar, setIconSave] = React.useState(iconSavPadrao)
+    const[iconCurtir, setIconCurtir]= React.useState(iconLikePadrao)
+    const[numeroDeLikes, setNumeroDeLikes] = React.useState(101523)  
 
     function salvarPost(){
-        if(iconSalvar === iconPadrao){
+        if(iconSalvar === iconSavPadrao){
             setIconSave(iconSalvo)
         }
         else{
-            setIconSave(iconPadrao)
+            setIconSave(iconSavPadrao)
+        }
+    }
+
+    function curtirPost(){
+        if(iconCurtir === iconLikePadrao ){
+            setIconCurtir(iconLike)
+            setNumeroDeLikes(numeroDeLikes +1)
+        }
+        else{
+            setIconCurtir(iconLikePadrao)
+            setNumeroDeLikes(numeroDeLikes -1)
+        }
+    }
+    
+    function curtirPostImagem(){
+        setIconCurtir(iconLike)
+        if(iconCurtir === iconLike ){
+            setNumeroDeLikes(numeroDeLikes)
+        }
+        else{
+            setNumeroDeLikes(numeroDeLikes + 1)
         }
     }
 
@@ -27,13 +53,13 @@ export default function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudoImg} />
+                <img src={props.conteudoImg} onClick={curtirPostImagem}/>
             </div>
 
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon class={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
@@ -45,7 +71,7 @@ export default function Post(props) {
                 <div class="curtidas">
                     <img src="assets/img/respondeai.svg" />
                     <div class="texto">
-                        Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                        Curtido por <strong>respondeai</strong> e <strong>outras {`${numeroDeLikes.toLocaleString('pt') }`} pessoas</strong>
                     </div>
                 </div>
             </div>

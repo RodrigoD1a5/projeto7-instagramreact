@@ -9,6 +9,7 @@ export default function Post(props) {
     const [iconSalvar, setIconSave] = React.useState(iconSavPadrao)
     const [iconCurtir, setIconCurtir] = React.useState(iconLikePadrao)
     const [numeroDeLikes, setNumeroDeLikes] = React.useState(101523)
+    const [dispararAnimacao, setDispararAnimacao] = React.useState(false)
 
     function salvarPost() {
         if (iconSalvar === iconSavPadrao) {
@@ -37,7 +38,12 @@ export default function Post(props) {
         }
         else {
             setNumeroDeLikes(numeroDeLikes + 1)
+            setDispararAnimacao(true)
         }
+
+        setTimeout(() => {
+            setDispararAnimacao(false)
+        }, 500);
     }
 
     return (
@@ -54,6 +60,7 @@ export default function Post(props) {
 
             <div class="conteudo">
                 <img src={props.conteudoImg} onDoubleClick={curtirPostImagem} data-test="post-image"/>
+                <ion-icon name="heart" class={!dispararAnimacao ? "escondido" : "animacao"}></ion-icon>
             </div>
 
             <div class="fundo">

@@ -47,26 +47,26 @@ export default function Post(props) {
     }
 
     return (
-        <div class="post" data-test="post">
-            <div class="topo">
-                <div class="usuario">
+        <div className="post" data-test="post">
+            <div className="topo">
+                <div className="usuario">
                     <img src={props.usuarioImg} />
                     {props.usuarioNome}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="conteudo">
+            <div className="conteudo">
                 <img src={props.conteudoImg} onDoubleClick={curtirPostImagem} data-test="post-image"/>
-                <ion-icon name="heart" class={!dispararAnimacao ? "escondido" : "animacao"}></ion-icon>
+                <ion-icon name="heart" className={!dispararAnimacao ? "escondido" : "animacao"}></ion-icon>
             </div>
 
-            <div class="fundo">
-                <div class="acoes">
+            <div className="fundo">
+                <div className="acoes">
                     <div>
-                        <ion-icon class={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost} data-test="like-post"></ion-icon>
+                        <ion-icon className={`${iconCurtir}`} name={`${iconCurtir}`} onClick={curtirPost} data-test="like-post"></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
@@ -75,9 +75,9 @@ export default function Post(props) {
                     </div>
                 </div>
 
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src="assets/img/respondeai.svg" />
-                    <div class="texto">
+                    <div className="texto">
                         Curtido por <strong>respondeai</strong> e <strong>outras <span data-test="likes-number">{`${numeroDeLikes.toLocaleString('pt')}`}</span> pessoas</strong>
                     </div>
                 </div>

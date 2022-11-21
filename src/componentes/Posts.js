@@ -6,8 +6,8 @@ export default function Posts() {
         { usuarioImg: "assets/img/barked.svg", usuarioNome: "barked", conteudoImg: "assets/img/dog.svg" }
     ]
     return (
-        < div class="posts" >
-            {listaPosts.map((post) => <Post usuarioImg={post.usuarioImg} usuarioNome={post.usuarioNome} conteudoImg={post.conteudoImg} />)}
+        < div className="posts" >
+            {listaPosts.map((post) => <Post key={post.usuarioNome} usuarioImg={post.usuarioImg} usuarioNome={post.usuarioNome} conteudoImg={post.conteudoImg} />)}
         </div >
     )
 }

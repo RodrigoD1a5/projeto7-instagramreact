@@ -1,3 +1,5 @@
+import Sugestao from "./Sugestao"
+
 export default function Sugestoes() {
     const listaSugestoes=[
         { imagem:"assets/img/bad.vibes.memes.svg" , nome:"bad.vibes.memes" , razao:"Segue você"},
@@ -7,28 +9,13 @@ export default function Sugestoes() {
         { imagem:"assets/img/smallcutecats.svg" , nome:"smallcutecats" , razao:"Segue você"}
     ]
     return (
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
-            {listaSugestoes.map((sugestao)=> <Sugestao imagem={sugestao.imagem} nome={sugestao.nome} razao={sugestao.razao}/>)}
+            {listaSugestoes.map((sugestao)=> <Sugestao key={sugestao.nome} imagem={sugestao.imagem} nome={sugestao.nome} razao={sugestao.razao}/>)}
         </div>
     )
 }
 
-function Sugestao(props){
-    return(
-        <div class="sugestao">
-        <div class="usuario">
-            <img src={props.imagem} />
-            <div class="texto">
-                <div class="nome">{props.nome}</div>
-                <div class="razao">{props.razao}</div>
-            </div>
-        </div>
-
-        <div class="seguir">Seguir</div>
-    </div>
-    )
-}

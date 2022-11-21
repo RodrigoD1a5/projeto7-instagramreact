@@ -1,4 +1,19 @@
+import React from "react"
+
 export default function Post(props) {
+    const iconPadrao = "bookmark-outline"
+    const iconSalvo= "bookmark"
+    const[iconSalvar, setIconSave] = React.useState(iconPadrao)
+
+    function salvarPost(){
+        if(iconSalvar === iconPadrao){
+            setIconSave(iconSalvo)
+        }
+        else{
+            setIconSave(iconPadrao)
+        }
+    }
+
     return (
         <div class="post">
             <div class="topo">
@@ -23,7 +38,7 @@ export default function Post(props) {
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={`${iconSalvar}`} onClick={salvarPost}></ion-icon>
                     </div>
                 </div>
 
